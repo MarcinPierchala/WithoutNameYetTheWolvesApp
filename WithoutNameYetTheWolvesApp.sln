@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WithoutNameYetTheWolvesApp", "WithoutNameYetTheWolvesApp\WithoutNameYetTheWolvesApp.csproj", "{D6EF9FD5-C485-4EA9-ACA6-58ADF393F2D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppUtilities", "AppUtilities\AppUtilities.csproj", "{94C911DD-5A09-4C39-9210-9606B3E51F95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D6EF9FD5-C485-4EA9-ACA6-58ADF393F2D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6EF9FD5-C485-4EA9-ACA6-58ADF393F2D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6EF9FD5-C485-4EA9-ACA6-58ADF393F2D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94C911DD-5A09-4C39-9210-9606B3E51F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94C911DD-5A09-4C39-9210-9606B3E51F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94C911DD-5A09-4C39-9210-9606B3E51F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94C911DD-5A09-4C39-9210-9606B3E51F95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
