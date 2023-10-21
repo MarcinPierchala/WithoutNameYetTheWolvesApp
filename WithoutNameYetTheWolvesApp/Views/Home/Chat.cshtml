@@ -19,7 +19,20 @@
         </div>
         <div class="window_present">
         </div>
-        <input type="text" class="insert_query" placeholder="Ask a question..." />
+        <input type="text" id="queryInput" class="insert_query" placeholder="Ask a question..." onkeypress="return enterPressed(event)" />
+        <button class="queryBtn" asp-area="" asp-controller="Home" asp-action="TalkWithChat">ASK CHAT</button>
 
     </div>
 </body>
+
+<script>
+    function enterPressed(event) {
+        if (event.keyCode === 13) {
+            document.querySelector("queryBtn").click();
+        }
+    }
+    document.querySelector("queryBtn").addEventListener("click", function () {
+        var queryString = document.getElementById('queryInput').value;
+
+    })
+</script>
