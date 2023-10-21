@@ -1,0 +1,125 @@
+.global_container {
+    position: center;
+    height: 90%;
+    width: 100%;
+    background: linear-gradient(-45deg, #ee7752, #e97aa5, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+    height: 85vh;
+    text-align: center;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.top_menu_buttons_container {
+    /*height: 7%;*/
+    /*position: center;*/
+    text-align: center;
+    width: 60% auto;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 2%;
+}
+
+.page_header {
+    /*height: 10%;*/
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 2%;
+    font-family: Consolas;
+    text-shadow: 1px 1px 6px rgba(66, 68, 90, 1);
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    -webkit-box-shadow: 8px 8px 18px 0px rgba(66, 68, 90, 0.26);
+    -moz-box-shadow: 8px 8px 18px 0px rgba(66, 68, 90, 0.26);
+    box-shadow: 8px 8px 18px 0px rgba(66, 68, 50, 0.26);
+}
+
+.window_present {
+    height: 50%;
+    width: 60%;
+    border: 5px inset rgba(164,164,164,0.58);
+    border-radius: 8px;
+    background: black;
+    opacity: 40%;
+    margin: 0 auto;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+}
+
+.top_menu_button {
+    display:inline-flex;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #FFFFFF;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 300;
+    color: #00ff21;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.insert_query {
+    box-sizing: border-box;
+    border: 5px inset rgba(164,164,164,0.58);
+    border-radius: 8px;
+    background: black;
+    opacity: 40%;
+    margin: 0 auto;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    color: white;
+    text-align: left;
+    vertical-align: middle;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    /*padding: 10px;*/
+}
+
+
+/*.top_menu_button:disabled {
+    pointer-events: none;
+}*/
+
+.top_menu_button:hover {
+    color: black;
+    background-color: #ee7752;
+    /*box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;*/
+}
+
+/*.top_menu_button:active {
+    box-shadow: none;
+    transform: translateY(0);
+}*/
+
+@media all and (max-width:30em){
+    .global_container{
+        display:block;
+        margin:0.4em auto;
+    }
+
+}
