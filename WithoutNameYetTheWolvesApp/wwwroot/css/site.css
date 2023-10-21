@@ -24,8 +24,6 @@
 }
 
 .top_menu_buttons_container {
-    /*height: 7%;*/
-    /*position: center;*/
     text-align: center;
     width: 60% auto;
     margin: 0 auto;
@@ -36,7 +34,6 @@
 }
 
 .page_header {
-    /*height: 10%;*/
     width: 60%;
     margin: 0 auto;
     margin-top: 2%;
@@ -97,29 +94,19 @@
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
-    /*padding: 10px;*/
 }
 
 
-/*.top_menu_button:disabled {
-    pointer-events: none;
-}*/
 
 .top_menu_button:hover {
     color: black;
     background-color: #ee7752;
-    /*box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;*/
 }
 
-/*.top_menu_button:active {
-    box-shadow: none;
-    transform: translateY(0);
-}*/
 
 @media all and (max-width:30em){
     .global_container{
         display:block;
         margin:0.4em auto;
     }
-
 }
