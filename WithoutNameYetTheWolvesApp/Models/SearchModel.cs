@@ -6,5 +6,7 @@ namespace WithoutNameYetTheWolvesApp.Models
     {
         [Required]
         public string Prompt { get; set; }
+        [Required]
+        public string Response { get; set; }
     }
 }

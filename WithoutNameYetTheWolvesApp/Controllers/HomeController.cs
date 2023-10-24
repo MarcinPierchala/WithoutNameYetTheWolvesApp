@@ -4,13 +4,17 @@ using OpenAI_API.Completions;
 using OpenAI_API;
 using System.Diagnostics;
 using WithoutNameYetTheWolvesApp.Models;
+using Microsoft.AspNetCore.Components;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.Text;
 
 namespace WithoutNameYetTheWolvesApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+       
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -26,12 +30,18 @@ namespace WithoutNameYetTheWolvesApp.Controllers
             return View();
         }
 
-        public async Task<string> TalkWithChat(string query)
+        [HttpPost]
+        public async Task<IActionResult> Chat([Bind("Prompt")] SearchModel searchModel)
         {
+            if(searchModel.Prompt == null || searchModel.Prompt == "")
+            {
+                searchModel.Response = "Zadaj pytanie!";
+                return View(searchModel);
+            }
             string theAnswer = "";
             var opeiAi = new OpenAIAPI(AppData.ApiKey);
             CompletionRequest completionRequest = new CompletionRequest();
-            completionRequest.Prompt = query;
+            completionRequest.Prompt = searchModel.Prompt;
             completionRequest.Model = OpenAI_API.Models.Model.DavinciText;
             completionRequest.MaxTokens = 1024;
 
@@ -47,7 +57,9 @@ namespace WithoutNameYetTheWolvesApp.Controllers
                 theAnswer = "wystąpił błąd - to do exception handling";
             }
 
-            return theAnswer;
+            searchModel.Response = theAnswer;
+
+            return View(searchModel);
         }
 
         public IActionResult Privacy()

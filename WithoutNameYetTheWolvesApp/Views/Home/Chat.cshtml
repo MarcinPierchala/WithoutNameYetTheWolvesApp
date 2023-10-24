@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SearchModel 
+@{
     ViewData["Title"] = "Chat";
 }
 
@@ -17,22 +18,23 @@
             <button class="top_menu_button" role="button">Python</button>
             <button class="top_menu_button" role="button">.NET</button>
         </div>
-        <div class="window_present">
-        </div>
-        <input type="text" id="queryInput" class="insert_query" placeholder="Ask a question..." onkeypress="return enterPressed(event)" />
-        <button class="queryBtn" asp-area="" asp-controller="Home" asp-action="TalkWithChat">ASK CHAT</button>
-
+        <div class="window_present_new">
+            <form asp-action="Chat">
+                <div class="form-group">
+                    <label asp-for="Response" class="control-label"></label>
+                    <textarea asp-for="Response" class="form-control" rows="20">
+                        @Model.Response.ToString()
+                </textarea>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Prompt" class="control-label"></label>
+                    <input asp-for="Prompt" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Chat" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>        
     </div>
 </body>
 
-<script>
-    function enterPressed(event) {
-        if (event.keyCode === 13) {
-            document.querySelector("queryBtn").click();
-        }
-    }
-    document.querySelector("queryBtn").addEventListener("click", function () {
-        var queryString = document.getElementById('queryInput').value;
-
-    })
-</script>
