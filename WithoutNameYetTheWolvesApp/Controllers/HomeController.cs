@@ -19,7 +19,10 @@ namespace WithoutNameYetTheWolvesApp.Controllers
         {
             _logger = logger;
         }
-
+        string theAnswer = "";
+        OpenAIAPI opeiAi = new OpenAIAPI(AppData.ApiKey);
+        CompletionRequest completionRequest = new CompletionRequest();
+        
         public IActionResult Index()
         {
             return View();
@@ -38,12 +41,12 @@ namespace WithoutNameYetTheWolvesApp.Controllers
                 searchModel.Response = "Zadaj pytanie!";
                 return View(searchModel);
             }
-            string theAnswer = "";
-            var opeiAi = new OpenAIAPI(AppData.ApiKey);
-            CompletionRequest completionRequest = new CompletionRequest();
+            
+            //CompletionRequest completionRequest = new CompletionRequest();
             completionRequest.Prompt = searchModel.Prompt;
             completionRequest.Model = OpenAI_API.Models.Model.DavinciText;
             completionRequest.MaxTokens = 1024;
+
 
             var completions = await opeiAi.Completions.CreateCompletionAsync(completionRequest);
 
