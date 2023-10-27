@@ -20,6 +20,7 @@ namespace WithoutNameYetTheWolvesApp.Controllers
             _logger = logger;
         }
         string theAnswer = "";
+        string category = "";
         OpenAIAPI opeiAi = new OpenAIAPI(AppData.ApiKey);
         CompletionRequest completionRequest = new CompletionRequest();
         
@@ -30,20 +31,28 @@ namespace WithoutNameYetTheWolvesApp.Controllers
 
         public IActionResult Chat()
         {
-            return View();
+            SearchModel searchModel = new SearchModel();
+            searchModel.Prompt = "Tutaj zadaj swoje pytanie";
+            return View(searchModel);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Chat([Bind("Prompt")] SearchModel searchModel)
+        public async Task<IActionResult> Chat([Bind("Prompt", "Category")] SearchModel searchModel)
         {
-            if(searchModel.Prompt == null || searchModel.Prompt == "")
+            if(searchModel.Prompt == null || searchModel.Prompt == "" || searchModel.Prompt == "Tutaj zadaj swoje pytanie")
             {
                 searchModel.Response = "Zadaj pytanie!";
                 return View(searchModel);
             }
             
-            //CompletionRequest completionRequest = new CompletionRequest();
-            completionRequest.Prompt = searchModel.Prompt;
+            if(searchModel.Category == null)
+            {
+                completionRequest.Prompt = searchModel.Prompt;
+            }
+            else
+            {
+                completionRequest.Prompt = searchModel.Category.ToString() + searchModel.Prompt;
+            }
             completionRequest.Model = OpenAI_API.Models.Model.DavinciText;
             completionRequest.MaxTokens = 1024;
 
@@ -60,7 +69,8 @@ namespace WithoutNameYetTheWolvesApp.Controllers
                 theAnswer = "wystąpił błąd - to do exception handling";
             }
 
-            searchModel.Response = theAnswer;
+            searchModel.Response = "You: " + "\nKategoria zapytania: " + searchModel.Category + "\n" + searchModel.Prompt + "\n\n" + "Chat: " + theAnswer;
+            searchModel.Prompt = "";
 
             return View(searchModel);
         }

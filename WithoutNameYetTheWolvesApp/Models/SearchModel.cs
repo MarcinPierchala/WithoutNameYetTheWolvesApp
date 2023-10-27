@@ -8,5 +8,7 @@ namespace WithoutNameYetTheWolvesApp.Models
         public string Prompt { get; set; }
         [Required]
         public string Response { get; set; }
+
+        public string Category { get; set; } = String.Empty;
     }
 }
