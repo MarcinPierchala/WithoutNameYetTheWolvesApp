@@ -1,10 +1,8 @@
 .global_container {
     position: center;
-    height: 90%;
+    height: 100%;
     width: 100%;
-    background: linear-gradient(-45deg, #ee7752, #e97aa5, #23a6d5, #23d5ab);
     background-size: 400% 400%;
-    animation: gradient 20s ease infinite;
     height: 85vh;
     text-align: center;
 }
@@ -40,13 +38,10 @@
     font-family: Consolas;
     text-shadow: 1px 1px 6px rgba(66, 68, 90, 1);
     font-size: 30px;
-    color: white;
+    color: black;
     text-align: center;
     vertical-align: middle;
     line-height: 50px;
-    -webkit-box-shadow: 8px 8px 18px 0px rgba(66, 68, 90, 0.26);
-    -moz-box-shadow: 8px 8px 18px 0px rgba(66, 68, 90, 0.26);
-    box-shadow: 8px 8px 18px 0px rgba(66, 68, 50, 0.26);
 }
 
 .window_present {
