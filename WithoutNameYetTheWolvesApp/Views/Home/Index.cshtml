@@ -2,6 +2,11 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model SearchModel
+@{
+    ViewData["Title"] = "Index";
+}
+
 <head>
     <title>Our Funky HTML Page</title>
     <meta name="description" content="Our first page" />
@@ -9,15 +14,28 @@
 </head>
 <body>
     <div class="global_container">
-        <div class="page_header">Find information from the IT world</div>
-        <div class="top_menu_buttons_container">
-            <button class="top_menu_button" role="button">Testing</button>
-            <button class="top_menu_button" role="button">Dev</button>
-            <button class="top_menu_button" role="button">Systems</button>
-            <button class="top_menu_button" role="button">CyberSec</button>
-            <button class="top_menu_button" role="button">Other</button>
-        </div>
-        <div class="window_present">
-        </div>
+        <div class="page_header">AI Chat and work becomes easier</div>
+        <form asp-action="Index">
+            <div class="window_present_new">
+                <div class="form-group">
+                    <label class="control-label">CHAT</label>
+                    <textarea asp-for="Response" class="form-control" rows="20">
+                        @Model.Response.ToString()
+                </textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">PYTANIE</label>
+                    <input asp-for="Prompt" class="form-control" onclick="this.select()" />
+                </div>
+                <div class="form-group mt-4">
+                    <input type="submit" value="Index" class="btn btn-primary" />
+                    <input type="submit" asp-for="Category" value="Java " class="btn btn-primary" />
+                    <input type="submit" asp-for="Category" value="C# " class="btn btn-primary" />
+                    <input type="submit" asp-for="Category" value="SQL " class="btn btn-primary" />
+                    <input type="submit" asp-for="Category" value="Python " class="btn btn-primary" />
+                    <input type="submit" asp-for="Category" value=".Net " class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
     </div>
 </body>
