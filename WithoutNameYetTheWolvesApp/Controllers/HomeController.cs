@@ -24,12 +24,12 @@ namespace WithoutNameYetTheWolvesApp.Controllers
         OpenAIAPI opeiAi = new OpenAIAPI(AppData.ApiKey);
         CompletionRequest completionRequest = new CompletionRequest();
         
-        public IActionResult Index()
+        public IActionResult News()
         {
             return View();
         }
 
-        public IActionResult Chat()
+        public IActionResult Index()
         {
             SearchModel searchModel = new SearchModel();
             searchModel.Prompt = "Tutaj zadaj swoje pytanie";
@@ -37,7 +37,7 @@ namespace WithoutNameYetTheWolvesApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Chat([Bind("Prompt", "Category")] SearchModel searchModel)
+        public async Task<IActionResult> Index([Bind("Prompt", "Category")] SearchModel searchModel)
         {
             if(searchModel.Prompt == null || searchModel.Prompt == "" || searchModel.Prompt == "Tutaj zadaj swoje pytanie")
             {
@@ -75,7 +75,7 @@ namespace WithoutNameYetTheWolvesApp.Controllers
             return View(searchModel);
         }
 
-        public IActionResult Privacy()
+        public IActionResult About_Us()
         {
             return View();
         }
