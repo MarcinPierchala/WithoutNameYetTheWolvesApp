@@ -20,14 +20,12 @@
                 </textarea>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">PYTANIE</label>
-                    <div class="input-wrapper" style="display: flex;justify-content: space-between;">
-                        <input asp-for="Prompt" class="form-control" style="flex-grow:1;" id="chatQuery"/>
-                        <button class="clear_button" style="flex-basis: 40px;flex-shrink: 0;" onclick="document.getElementById('chatQuery').value=''">
-                            X
-                        </button>
-                        <button class="clear_button" type="submit" value="Index" style="flex-basis: 150px;flex-shrink: 0;">Ask a question</button>
-                    </div>                    
+                    <label class="control-label">PYTANIE</label>                                      
+                </div>
+                <div class="input-wrapper" style="display: flex;justify-content: space-between;">
+                    <input asp-for="Prompt" class="form-control" style="flex-grow:1;" id="chatQuery" />
+                    <input class="clear_button" type="button" id="clrBtn" onclick="document.getElementById('chatQuery').value=''" value="X">
+                    <button id="askBtn" class="clear_button" style="flex-basis: 150px;flex-shrink: 0;">Ask a question</button>
                 </div>
                 <div class="form-group mt-4">
                     <input type="submit" value="Index" class="btn btn-primary" />
