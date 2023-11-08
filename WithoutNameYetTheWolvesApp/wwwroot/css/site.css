@@ -79,7 +79,7 @@
     /*line-height: 90px;*/
 }
 
-.clear_button{
+.clear_button, .other_claaass {
     border: solid 1px rgba(164,164,164,0.58);
     border-radius: 5px;
     background-color: #FFFFFF
@@ -119,9 +119,9 @@
 
 
 
-.top_menu_button:hover {
+.top_menu_button:hover, .clear_button:hover {
     color: black;
-    background-color: #ee7752;
+    background-color:rgba(164,164,164,0.58); 
 }
 
 

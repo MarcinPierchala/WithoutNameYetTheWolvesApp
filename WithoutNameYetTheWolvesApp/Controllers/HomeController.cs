@@ -32,6 +32,7 @@ namespace WithoutNameYetTheWolvesApp.Controllers
         public IActionResult Index()
         {
             SearchModel searchModel = new SearchModel();
+            searchModel.Response = "Please choose category for question";
             searchModel.Prompt = "Tutaj zadaj swoje pytanie";
             return View(searchModel);
         }
@@ -45,7 +46,7 @@ namespace WithoutNameYetTheWolvesApp.Controllers
                 return View(searchModel);
             }
             
-            if(searchModel.Category == null)
+            if(searchModel.Category == null || searchModel.Category == "Ask a question")
             {
                 completionRequest.Prompt = searchModel.Prompt;
             }
