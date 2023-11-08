@@ -15,9 +15,18 @@
             <div class="window_present_new">
                 <div class="form-group">
                     <label class="control-label">CHAT</label>
-                    <textarea asp-for="Response" class="form-control" rows="20">
-                        @Model.Response.ToString()
-                </textarea>
+                    <div class="other_claaass" style="height:470px;vertical-align:central">
+                        @if (String.IsNullOrEmpty(Model.Category.ToString()))
+                        {
+                            <label asp-for="Response" style="margin-top:20%;">@Model.Response.ToString()</label>
+                        }
+                        else
+                        {
+                            <textarea asp-for="Response" class="form-control" rows="19">
+                                @Model.Response.ToString()
+                            </textarea>
+                        }
+                    </div>                                        
                 </div>
                 <div class="form-group">
                     <label class="control-label">PYTANIE</label>                                      
@@ -25,10 +34,9 @@
                 <div class="input-wrapper" style="display: flex;justify-content: space-between;">
                     <input asp-for="Prompt" class="form-control" style="flex-grow:1;" id="chatQuery" />
                     <input class="clear_button" type="button" id="clrBtn" onclick="document.getElementById('chatQuery').value=''" value="X">
-                    <button id="askBtn" class="clear_button" style="flex-basis: 150px;flex-shrink: 0;">Ask a question</button>
+                    <input type="submit" asp-for="Category" value="Ask a question" id="askBtn" class="clear_button" style="flex-basis: 150px;flex-shrink: 0;" />
                 </div>
                 <div class="form-group mt-4">
-                    <input type="submit" value="Index" class="btn btn-primary" />
                     <input type="submit" asp-for="Category" value="Java " class="btn btn-primary" />
                     <input type="submit" asp-for="Category" value="C# " class="btn btn-primary" />
                     <input type="submit" asp-for="Category" value="SQL " class="btn btn-primary" />
